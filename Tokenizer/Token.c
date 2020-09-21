@@ -2,15 +2,15 @@
 #include "Token.h"
 
 void checkToken(char exp[]) {
-const char op[] = "Operator", num[] = "Integer", ch[] = "Identifier";
-int n = 0, i = 0, i2;
-const char increment[] = "++";
-const char decrement[] = "--";
-const char operators[] = "+-*/<>=";
-const char opEquivalent[][20] = { "Plus","Minus","Times","Divide","Less Than", "Greater Than","Equals" };
-const char separator[] = "{}[]();";
-const char sEquivalent[][20] = { "Open Curly Bracket","Close Curly Bracket","Open Bracket","Close Bracket","Open Parenthesis","Close Parenthesis","Semicolon" };
-for (n = 0;exp[n] != '\0';n++) {
+	const char op[] = "Operator", num[] = "Integer", ch[] = "Identifier";
+	int n = 0, i = 0, i2;
+	const char increment[] = "++";
+	const char decrement[] = "--";
+	const char operators[] = "+-*/<>=";
+	const char opEquivalent[][20] = { "Plus","Minus","Times","Divide","Less Than", "Greater Than","Equals" };
+	const char separator[] = "{}[]();";
+	const char sEquivalent[][20] = { "Open Curly Bracket","Close Curly Bracket","Open Bracket","Close Bracket","Open Parenthesis","Close Parenthesis","Semicolon" };
+	for (n = 0;exp[n] != '\0';n++) {
 		if (isdigit(exp[n])) {
 			printf("\n");
 			while (isdigit(exp[n])) {
@@ -19,9 +19,9 @@ for (n = 0;exp[n] != '\0';n++) {
 			}
 			printf("\tLiteral");
 		}
-		if (isalpha(exp[n])) {
+		if (isalpha(exp[n]) || exp[n] == '_') {
 			printf("\n");
-			while (isalpha(exp[n]) || isdigit(exp[n])) {
+			while (isalpha(exp[n]) || isdigit(exp[n]) || exp[n] == '_') {
 				printf("%c", exp[n]);
 				n++;
 			}
